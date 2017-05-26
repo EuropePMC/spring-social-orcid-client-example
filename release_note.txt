@@ -1,4 +1,10 @@
 ------------------------
+Release date: 2017-05-26
+Release tag: spring-social-orcid-web-app_r2_0
+Release note: 
+	Upgrade to comply with ORCID API v2.0, and also upgrade spring social facebook to work with Facebook's current Graph API.
+
+------------------------
 Release date: 2016-06-25
 Release tag: spring-social-orcid-web-app_r1_7
 Release note: 
