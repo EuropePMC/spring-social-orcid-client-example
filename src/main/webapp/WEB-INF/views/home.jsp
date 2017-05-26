@@ -7,10 +7,10 @@
 </head>
 <body>
 	<h1>
-		Welcome to Spring Social ORCID...
+		Welcome to Spring Social ORCID..
 	</h1>
 
-	<form id="target" action="<c:url value="/signin/orcid" />" method="POST" style="display:none">
+	<form id="target" action="<c:url value="/signin/orcid" />" method="POST" style="display:block">
 		<button type="submit">Sign in with ORCID</button>
 		<input type="hidden" name="scope" id="orcid_scope" value="/read-limited /orcid-works/create" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -63,6 +63,8 @@ $(document).ready(function() {
     });
     
     var query = window.location.search.substring(1);
+    console.log("query: " + query);
+    
     if ("remember_me" === query) {
     	$('#orcidRememberMeId').prop('checked', true);
     	document.cookie = "do_remember_me=true";

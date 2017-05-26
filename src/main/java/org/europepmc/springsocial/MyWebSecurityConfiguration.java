@@ -1,8 +1,8 @@
-package org.jyougo.springsocial;
+package org.europepmc.springsocial;
 
 import javax.sql.DataSource;
 
-import org.jyougo.user.UserDetailsServiceImpl;
+import org.europepmc.user.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

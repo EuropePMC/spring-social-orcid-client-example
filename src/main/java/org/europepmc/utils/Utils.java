@@ -1,4 +1,4 @@
-package org.jyougo.utils;
+package org.europepmc.utils;
 
 import java.io.*;
 
@@ -14,8 +14,7 @@ import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import org.springframework.social.orcid.jaxb.beans.OrcidMessage;
-import org.springframework.social.orcid.jaxb.beans.impl.OrcidMessageImpl;
+import org.europepmc.springframework.social.orcid.jaxb.beans.Record;
 import org.w3c.dom.*;
 import org.xml.sax.*;
 
@@ -66,11 +65,11 @@ public class Utils {
         return output;
     }
     
-    public static OrcidMessage domToOrcidMessage(Document doc) throws JAXBException {
-        JAXBContext jaxbContext = JAXBContext.newInstance(OrcidMessageImpl.class);
+    public static Record domToOrcidMessage(Document doc) throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(Record.class);
 
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        OrcidMessage orcidMessage = (OrcidMessage) jaxbUnmarshaller.unmarshal(doc);
+        Record orcidMessage = (Record) jaxbUnmarshaller.unmarshal(doc);
         return orcidMessage;
     }
 

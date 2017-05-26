@@ -59,7 +59,7 @@ startup.bat
 ------------------------------------
 7. Try the web application
 
-Open your browser, and navigate to http://localhost:8080, and follow the instructions.
+Open your browser, and navigate to http://localhost:8088, and follow the instructions.
 
 ##############################################
 Obsolete Readme as below
@@ -77,9 +77,9 @@ Ensure that you provide Facebook the website URL:
 2. Click your application to go to its Dashboard
 3. Click "Choose a Platform"
 4. Click "WWW" website
-5. Find the section "Tell us about your website" and enter "http://localhost:8080/" and then "Next"
+5. Find the section "Tell us about your website" and enter "http://localhost:8088/" and then "Next"
 
-That's it. Now go to http://localhost:8080/<name-of-spring-social-example-app>/, it should work.
+That's it. Now go to http://localhost:8088/<name-of-spring-social-example-app>/, it should work.
 
 ------------------------------------
 Steps to run the application:
@@ -87,7 +87,7 @@ Steps to run the application:
 1. Ensure you have Maven installed.
 2. Run 'mvn install'
 3. Run 'mvn jetty:run'
-4. Navigate to localhost:8080
+4. Navigate to localhost:8088
 
 ------------------------------------
 Other references:

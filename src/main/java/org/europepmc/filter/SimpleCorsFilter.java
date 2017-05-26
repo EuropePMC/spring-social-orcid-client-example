@@ -1,4 +1,4 @@
-package org.jyougo.filter;
+package org.europepmc.filter;
 
 import java.io.IOException;
 

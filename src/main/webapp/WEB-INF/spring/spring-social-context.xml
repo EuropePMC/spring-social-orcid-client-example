@@ -21,7 +21,7 @@
   		</beans:property>
 	</beans:bean>    
         
-    <beans:import resource="classpath:/org/springframework/social/orcid/configuration.xml" />
+    <beans:import resource="classpath:/org/europepmc/springframework/social/orcid/configuration.xml" />
     
     <beans:bean id="connectionFactoryLocator" class="org.springframework.social.connect.support.ConnectionFactoryRegistry">
         <beans:property name="connectionFactories">
@@ -30,7 +30,7 @@
                     <beans:constructor-arg value="${facebook.clientId}" />
                     <beans:constructor-arg value="${facebook.clientSecret}" />
                 </beans:bean>
-				<beans:bean class="org.springframework.social.orcid.connect.OrcidConnectionFactory">
+				<beans:bean class="org.europepmc.springframework.social.orcid.connect.OrcidConnectionFactory">
                     <beans:constructor-arg value="${orcid.clientId}" />
                     <beans:constructor-arg value="${orcid.clientSecret}" />
                 </beans:bean>                
@@ -52,11 +52,11 @@
         <beans:property name="connectionSignUp" ref="accountConnectionSignUp" />
     </beans:bean>
     
-	<beans:bean name="socialSignInAdapter" class="org.jyougo.springsocial.SocialSignInAdapter">
+	<beans:bean name="socialSignInAdapter" class="org.europepmc.springsocial.SocialSignInAdapter">
 		<beans:constructor-arg ref="userDao" />
 	</beans:bean>
 			
-	<beans:bean name="accountConnectionSignUp" class="org.jyougo.springsocial.AccountConnectionSignUp">
+	<beans:bean name="accountConnectionSignUp" class="org.europepmc.springsocial.AccountConnectionSignUp">
 		<beans:constructor-arg ref="userDao" />
 	</beans:bean>	
 	
@@ -67,7 +67,7 @@
 	</beans:bean>
 
 	<beans:bean id="orcid" factory-bean="connectionRepository" factory-method="findPrimaryConnection" scope="request">
-		<beans:constructor-arg value="org.springframework.social.orcid.api.OrcidApi" />
+		<beans:constructor-arg value="org.europepmc.springframework.social.orcid.api.OrcidApi" />
 		<aop:scoped-proxy proxy-target-class="false" />
 	</beans:bean>
 

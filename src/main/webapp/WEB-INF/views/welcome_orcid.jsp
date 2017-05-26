@@ -67,7 +67,7 @@ $(document).ready(function () {
 });
 
 function testX() {
-	$.getJSON("http://localhost:8080/springsocial/api/orcid/profile", function(result) {
+	$.getJSON("http://localhost:8088/springsocial/api/orcid/profile", function(result) {
 		console.log("My profile: ");
       	console.log(result);
   });

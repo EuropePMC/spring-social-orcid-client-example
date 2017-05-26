@@ -27,7 +27,7 @@
 
 	<filter>
 		<filter-name>SimpleCorsFilter</filter-name>
-		<filter-class>org.jyougo.filter.SimpleCorsFilter</filter-class>
+		<filter-class>org.europepmc.filter.SimpleCorsFilter</filter-class>
 	</filter>
   
   <filter>

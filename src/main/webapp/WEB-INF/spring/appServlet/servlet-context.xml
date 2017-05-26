@@ -21,14 +21,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="org.jyougo.springsocial" />	
-	<context:component-scan base-package="org.jyougo.orcid.api" />
-	<context:component-scan base-package="org.jyougo.admin" />
+	<context:component-scan base-package="org.europepmc.springsocial" />	
+	<context:component-scan base-package="org.europepmc.orcid.api" />
+	<context:component-scan base-package="org.europepmc.admin" />
 	
     <beans:bean class="org.springframework.social.connect.web.ProviderSignInController">
         <beans:property name="signInUrl" value="/login" />
         <beans:property name="postSignInUrl" value="/" />
-        <beans:property name="applicationUrl" value="http://localhost:8080/spring-social-orcid-client" />
+        <beans:property name="applicationUrl" value="http://localhost:8088/spring-social-orcid-client-ws" />
     </beans:bean>
     
     <beans:bean class="org.springframework.social.connect.web.ConnectController">

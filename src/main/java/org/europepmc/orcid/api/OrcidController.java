@@ -1,16 +1,16 @@
-package org.jyougo.orcid.api;
+package org.europepmc.orcid.api;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.transform.dom.DOMSource;
 
-import org.jyougo.utils.Utils;
+import org.europepmc.springframework.social.orcid.api.MessageOperations;
+import org.europepmc.springframework.social.orcid.api.OrcidApi;
+import org.europepmc.springframework.social.orcid.jaxb.beans.Record;
+import org.europepmc.utils.Utils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.social.connect.Connection;
-import org.springframework.social.orcid.api.MessageOperations;
-import org.springframework.social.orcid.api.OrcidApi;
-import org.springframework.social.orcid.jaxb.beans.OrcidProfile;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +31,7 @@ public class OrcidController {
     Connection<OrcidApi> orcid;
 
     @RequestMapping(value = "/orcid/profile", method = RequestMethod.GET, produces = { MediaType.APPLICATION_JSON_VALUE })
-    public OrcidProfile getProfile(HttpServletRequest request) {
+    public Record getProfile(HttpServletRequest request) {
         System.out.println("Entering getProfile()");
         
         if (orcid == null) {
@@ -51,7 +51,7 @@ public class OrcidController {
             return null;
         }
         
-        OrcidProfile orcidProfile = messageOperations.getOrcidProfile(orcid.getKey().getProviderUserId(), true);
+        Record orcidProfile = messageOperations.getOrcidProfile(orcid.getKey().getProviderUserId(), true);
         return orcidProfile;
     }    
 

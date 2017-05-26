@@ -1,4 +1,4 @@
-package org.jyougo.admin;
+package org.europepmc.admin;
 
 import java.util.Locale;
 import javax.servlet.http.HttpServletResponse;

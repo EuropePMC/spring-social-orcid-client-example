@@ -22,11 +22,11 @@
     	<property name="password" value=""/>
     </bean>
     
-    <bean id="userDao" class="org.jyougo.user.UserDao">
+    <bean id="userDao" class="org.europepmc.user.UserDao">
     	<constructor-arg ref="dataSource" />
     </bean>
     
-    <bean id="userDetailsServiceImpl" class="org.jyougo.user.UserDetailsServiceImpl">
+    <bean id="userDetailsServiceImpl" class="org.europepmc.user.UserDetailsServiceImpl">
     	<constructor-arg ref="userDao" />
     </bean>    
 </beans>

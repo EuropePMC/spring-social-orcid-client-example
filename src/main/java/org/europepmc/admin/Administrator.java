@@ -1,4 +1,4 @@
-package org.jyougo.admin;
+package org.europepmc.admin;
 
 import org.springframework.social.connect.ConnectionKey;
 
