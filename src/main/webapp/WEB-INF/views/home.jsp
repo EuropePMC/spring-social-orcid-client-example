@@ -14,7 +14,7 @@
 		<button type="submit">Sign in with ORCID</button>
 		<input type="hidden" name="scope" id="orcid_scope" value="/authenticate" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
-		<input type="checkbox" name="additional_permission" value="/read-limited /orcid-works/create"> Allow for (1) Reading Entire Record and (2) Adding a Research Activity 
+		<input type="checkbox" name="additional_permission" value="/read-limited /activities/update"> Allow for (1) Reading Entire Record and (2) Adding a Research Activity 
 	</form>
 	
 	<form action="<c:url value="/signin/facebook" />" method="POST">
