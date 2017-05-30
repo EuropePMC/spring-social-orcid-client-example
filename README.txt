@@ -1,3 +1,16 @@
+This is an example web application that demonstrates how to use Spring Social ORCID to enable users 
+to sign into a web application via ORCID.
+
+In the same way, it demonstrates how to use Spring Social Facebook to enable users to sign into a 
+web application via Facebook.
+
+Hopefully, with this example, you'll understand how to integrate Spring Social into your web application. 
+And users can sign into your application via a variety of ways, such as ORCID, Facebook, Twitter, LinkedIn, etc.
+
+Have fun, and all the best!
+Europe PMC development team
+ 
+------------------------------------ 
 Recommended setup:
 * Java 8
 * Tomcat 8
