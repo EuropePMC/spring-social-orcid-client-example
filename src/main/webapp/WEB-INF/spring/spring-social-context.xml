@@ -30,10 +30,6 @@
                     <beans:constructor-arg value="${facebook.clientId}" />
                     <beans:constructor-arg value="${facebook.clientSecret}" />
                 </beans:bean>
- 				<beans:bean class="org.springframework.social.twitter.connect.TwitterConnectionFactory">
-                    <beans:constructor-arg value="${twitter.clientId}" />
-                    <beans:constructor-arg value="${twitter.clientSecret}" />
-                </beans:bean>
 				<beans:bean class="org.europepmc.springframework.social.orcid.connect.OrcidConnectionFactory">
                     <beans:constructor-arg value="${orcid.clientId}" />
                     <beans:constructor-arg value="${orcid.clientSecret}" />
@@ -75,14 +71,9 @@
 		<aop:scoped-proxy proxy-target-class="false" />
 	</beans:bean>
 
-	<beans:bean id="twitter" factory-bean="connectionRepository" factory-method="findPrimaryConnection" scope="request">
-		<beans:constructor-arg value="org.springframework.social.twitter.api.Twitter" />
-		<aop:scoped-proxy proxy-target-class="false" />
-	</beans:bean>
-
 	<beans:bean id="connectionRepository" factory-method="createConnectionRepository" factory-bean="usersConnectionRepository" scope="request">
     	<beans:constructor-arg value="#{request.userPrincipal.name}" />
     	<aop:scoped-proxy proxy-target-class="false" />
 	</beans:bean>
-
+        
 </beans:beans>

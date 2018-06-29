@@ -20,15 +20,10 @@
 	<form action="<c:url value="/signin/facebook" />" method="POST">
 		<button type="submit">Sign in with Facebook</button>
 		<input type="hidden" name="scope"
-			value="public_profile, user_friends" />
+			value="public_profile, user_friends, user_actions.video" />
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> 
 	</form>
 
-	<form id="login--twitter-form" class="login--signin-link" action="<c:url value="/signin/twitter" />" method="POST">
-		<input type="hidden" name="force_login" value="false" />
-		<button id="login--twitter-signin" class="secondary login--signin-button" onclick="submitTwitterForm()">Sign in with Twitter</button>
-		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-	</form>
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
