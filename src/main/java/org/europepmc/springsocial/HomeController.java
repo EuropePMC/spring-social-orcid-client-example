@@ -9,10 +9,13 @@ import javax.inject.Inject;
 import org.europepmc.springframework.social.orcid.api.OrcidApi;
 import org.europepmc.springframework.social.orcid.jaxb.beans.Record;
 import org.europepmc.springframework.social.orcid.utils.StringUtility;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.Connection;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.Page;
+import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
+	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @Inject
     @Qualifier("orcid")
@@ -31,6 +36,10 @@ public class HomeController {
     @Inject
     @Qualifier("facebook")
     Connection<Facebook> facebook;
+    
+    @Inject
+    @Qualifier("twitter")
+    Connection<Twitter> twitter;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -89,22 +98,43 @@ public class HomeController {
         return "welcome_facebook";
     }
     
+    @RequestMapping(value = "/twitter", method = RequestMethod.GET)
+    public String welcomeTwitter(Locale locale, Model model) {
+        Twitter tw = twitter.getApi();
+        
+        tw.userOperations().getUserProfile().getName();
+
+        model.addAttribute("twitter", true);
+        String name = tw.userOperations().getUserProfile().getName();
+        model.addAttribute("name", name);
+        String imageUrl = tw.userOperations().getUserProfile().getProfileImageUrl();
+        model.addAttribute("imgUrl", imageUrl);
+        
+        return "welcome_twitter";
+    }
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(Locale locale, Model model) {
         
         try {
-            OrcidApi orcidApi = orcid.getApi();
+            orcid.getApi();
             return welcomeOrcid(locale, model);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        	logger.info("orcid.getApi(): " + e.getMessage());
         }
+        
         try {
-            Facebook fb = facebook.getApi();
+            facebook.getApi();
             return welcomeFacebook(locale, model);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        	logger.info("facebook.getApi(): " + e.getMessage());
+        }
+        
+        try {
+            twitter.getApi();
+            return welcomeTwitter(locale, model);
+        } catch (Exception e) {
+        	logger.info("twitter.getApi(): " + e.getMessage());
         }
 
         return "home";
