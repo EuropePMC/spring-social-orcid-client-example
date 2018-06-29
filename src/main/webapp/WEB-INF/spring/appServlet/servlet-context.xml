@@ -28,7 +28,4 @@
         <beans:property name="postSignInUrl" value="/" />
     </beans:bean>
     
-    <beans:bean class="org.springframework.social.connect.web.ConnectController">
-    </beans:bean>
-    
 </beans:beans>
